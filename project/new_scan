@@ -1,0 +1,12 @@
+# Nmap 7.01 scan initiated Wed Aug 30 14:09:34 2017 as: nmap -oN new_scan localhost
+mass_dns: warning: Unable to determine any DNS servers. Reverse DNS is disabled. Try using --system-dns or specify valid servers with --dns-servers
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.0000050s latency).
+Not shown: 996 closed ports
+PORT     STATE SERVICE
+80/tcp   open  http
+111/tcp  open  rpcbind
+3306/tcp open  mysql
+5432/tcp open  postgresql
+
+# Nmap done at Wed Aug 30 14:09:35 2017 -- 1 IP address (1 host up) scanned in 1.65 seconds

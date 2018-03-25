@@ -1,0 +1,15 @@
+import re
+pattern = re.compile(r"""(?P<found>(USER|USERNAME|PASS|
+PASSWORD|LOGIN|BENUTZER|PASSWORT|AUTH|email|password|clientuser|clientpass
+ACCESS|ACCESS_?KEY|SESSION|
+SESSION_?KEY|TOKEN)[=:\s].+)\b""",re.MULTILINE|re.IGNORECASE)
+
+l=['username and many more', 'there is nothing here', 'ufala', 'short form for pass', 'anther password should be found', 'this is not right', 'an email here']
+for n in l:
+	match=re.search(pattern, n)
+	if  match:
+		print match.groupdict()['found']
+
+print pattern
+.findall(l)
+

@@ -1,0 +1,33 @@
+language: python
+
+#New container architecture
+#http://docs.travis-ci.com/user/workers/container-based-infrastructure/
+#sudo: false
+
+python:
+  - "3.3"
+  - "3.4"
+
+cache:
+  apt: true
+  directories:
+  - build
+
+before_install:
+  - sh scripts/prepare_travis.sh
+
+notifications:
+  email:
+    - julien@gns3.net
+  #irc:
+  #  channels:
+  #    - "chat.freenode.net#gns3"
+  #  on_success: change
+  #  on_failure: always
+
+install:
+  - "pip install -r dev-requirements.txt"
+
+script:
+    - "xvfb-run py.test -vv" # Run tests in a fake X server
+    # - "pep8 --exclude=build,.git,ui"

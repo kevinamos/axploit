@@ -1,0 +1,31 @@
+<MenuScreen>:
+    BoxLayout:
+        Button:
+            text: 'Goto settings'
+            on_press: root.manager.current = 'settings'
+        Button:
+            text: 'Goto ufala'
+            on_press: root.manager.current = 'ufala'
+
+        Button:
+            text: 'Quit'
+
+<SettingsScreen>:
+    BoxLayout:
+        Button:
+            text: 'My settings button'
+        Button:
+            text: 'Back to menu'
+            on_press: root.manager.current = 'menu'
+<UfalaScreen>:
+    BoxLayout:
+        Label:
+            text:'ufala saaaaaaaaaaaana'
+        Button:
+            text: 'Goto settings'
+            on_press: root.manager.current = 'settings'
+        Button:
+            text: 'Goto ufala'
+            on_press: root.manager.current = 'ufala'
+        Button:
+            text: 'Quit'

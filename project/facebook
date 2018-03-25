@@ -1,0 +1,122 @@
+# Nmap 7.01 scan initiated Thu Sep  7 10:20:45 2017 as: nmap -oX - -oN facebook -sV nmap facebook.com
+Failed to resolve "nmap".
+Nmap scan report for facebook.com (185.60.219.35)
+Host is up (0.025s latency).
+Other addresses for facebook.com (not scanned): 2a03:2880:f124:83:face:b00c:0:25de
+Not shown: 994 filtered ports
+PORT     STATE  SERVICE        VERSION
+80/tcp   open   http
+113/tcp  closed ident
+443/tcp  open   ssl/https      proxygen
+5222/tcp closed xmpp-client
+8008/tcp open   http
+8010/tcp open   ssl/http-proxy FortiGate Web Filtering Service
+3 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port80-TCP:V=7.01%I=7%D=9/7%Time=59B155CC%P=x86_64-pc-linux-gnu%r(GetRe
+SF:quest,B23,"HTTP/1\.1\x20200\x20OK\r\nContent-Type:\x20text/html;\x20cha
+SF:rset=\"utf-8\"\r\nContent-Length:\x202749\r\nConnection:\x20Close\r\n\r
+SF:\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C//DTD\x20HTML\x204\.01\x20Tran
+SF:sitional//EN\">\n<html>\n\x20\x20<head>\n\x20\x20\x20\x20<meta\x20http-
+SF:equiv=\"Content-Type\"\x20content=\"text/html;\x20charset=UTF-8\">\n\x2
+SF:0\x20\x20\x20<title>\n\x20\x20\x20\x20\x20\x20The\x20URL\x20you\x20requ
+SF:ested\x20has\x20been\x20blocked\n\x20\x20\x20\x20</title>\n\x20\x20\x20
+SF:\x20<style\x20type=\"text/css\">\n\x20\x20\x20\x20\x20\x20html,\x20body
+SF:\x20{\n\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200;\n\x20\x20\x20\x20\
+SF:x20\x20\x20\x20padding:\x200;\n\x20\x20\x20\x20\x20\x20\x20\x20font-fam
+SF:ily:\x20Verdana,\x20Arial,\x20sans-serif;\n\x20\x20\x20\x20\x20\x20\x20
+SF:\x20font-size:\x2010pt;\n\x20\x20\x20\x20\x20\x20}\n\x20\x20\x20\x20\x2
+SF:0\x20h1,\x20h2\x20{\n\x20\x20\x20\x20\x20\x20\x20\x20height:\x2082px;\n
+SF:\x20\x20\x20\x20\x20\x20\x20\x20text-indent:\x20-999em;\n\x20\x20\x20\x
+SF:20\x20\x20\x20\x20margin:\x200;\n\x20\x20\x20\x20\x20\x20\x20\x20paddin
+SF:g:\x200;\n\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200;\n\x20\x20\x20\x
+SF:20\x20\x20}\n\x20\x20\x20\x20\x20\x20div\x20{\n\x20\x20\x20\x20\x20\x20
+SF:\x20\x20margin:\x200;\n\x20\x20\x20\x20\x20\x20\x20\x20padding:\x200;\n
+SF:\x20\x20\x20\x20\x20\x20}\n\x20\x20\x20\x20\x20\x20div\.header\x20{\n\x
+SF:20\x20\x20\x20\x20\x20\x20\x20background:\x20url\(\)\x200\x200\x20repea
+SF:t-x;\n\x20\x20\x20\x20\x20\x20\x20\x20height:\x2082px;\n\x20\x20\x20\x2
+SF:0\x20\x20}\n\x20\x20\x20\x20\x20\x20div\.header\x20h1\x20{\n\x20\x20\x2
+SF:0\x20\x20\x20\x20\x20background:\x20url\(\)\x200\x200\x20no-repeat;\n\x
+SF:20\x20\x20\x20\x20\x20}\n\x20\x20\x20\x20\x20\x20div\.header\x20h2\x20{
+SF:\n\x20\x20\x20\x20\x20\x20\x20\x20background:\x20url\(\)\x200\x20-82px\
+SF:x20n")%r(HTTPOptions,B23,"HTTP/1\.1\x20200\x20OK\r\nContent-Type:\x20te
+SF:xt/html;\x20charset=\"utf-8\"\r\nContent-Length:\x202749\r\nConnection:
+SF:\x20Close\r\n\r\n<!DOCTYPE\x20html\x20PUBLIC\x20\"-//W3C//DTD\x20HTML\x
+SF:204\.01\x20Transitional//EN\">\n<html>\n\x20\x20<head>\n\x20\x20\x20\x2
+SF:0<meta\x20http-equiv=\"Content-Type\"\x20content=\"text/html;\x20charse
+SF:t=UTF-8\">\n\x20\x20\x20\x20<title>\n\x20\x20\x20\x20\x20\x20The\x20URL
+SF:\x20you\x20requested\x20has\x20been\x20blocked\n\x20\x20\x20\x20</title
+SF:>\n\x20\x20\x20\x20<style\x20type=\"text/css\">\n\x20\x20\x20\x20\x20\x
+SF:20html,\x20body\x20{\n\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200;\n\x
+SF:20\x20\x20\x20\x20\x20\x20\x20padding:\x200;\n\x20\x20\x20\x20\x20\x20\
+SF:x20\x20font-family:\x20Verdana,\x20Arial,\x20sans-serif;\n\x20\x20\x20\
+SF:x20\x20\x20\x20\x20font-size:\x2010pt;\n\x20\x20\x20\x20\x20\x20}\n\x20
+SF:\x20\x20\x20\x20\x20h1,\x20h2\x20{\n\x20\x20\x20\x20\x20\x20\x20\x20hei
+SF:ght:\x2082px;\n\x20\x20\x20\x20\x20\x20\x20\x20text-indent:\x20-999em;\
+SF:n\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200;\n\x20\x20\x20\x20\x20\x2
+SF:0\x20\x20padding:\x200;\n\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200;\
+SF:n\x20\x20\x20\x20\x20\x20}\n\x20\x20\x20\x20\x20\x20div\x20{\n\x20\x20\
+SF:x20\x20\x20\x20\x20\x20margin:\x200;\n\x20\x20\x20\x20\x20\x20\x20\x20p
+SF:adding:\x200;\n\x20\x20\x20\x20\x20\x20}\n\x20\x20\x20\x20\x20\x20div\.
+SF:header\x20{\n\x20\x20\x20\x20\x20\x20\x20\x20background:\x20url\(\)\x20
+SF:0\x200\x20repeat-x;\n\x20\x20\x20\x20\x20\x20\x20\x20height:\x2082px;\n
+SF:\x20\x20\x20\x20\x20\x20}\n\x20\x20\x20\x20\x20\x20div\.header\x20h1\x2
+SF:0{\n\x20\x20\x20\x20\x20\x20\x20\x20background:\x20url\(\)\x200\x200\x2
+SF:0no-repeat;\n\x20\x20\x20\x20\x20\x20}\n\x20\x20\x20\x20\x20\x20div\.he
+SF:ader\x20h2\x20{\n\x20\x20\x20\x20\x20\x20\x20\x20background:\x20url\(\)
+SF:\x200\x20-82px\x20n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port443-TCP:V=7.01%T=SSL%I=7%D=9/7%Time=59B155D3%P=x86_64-pc-linux-gnu%
+SF:r(GetRequest,128,"HTTP/1\.1\x20301\x20Moved\x20Permanently\r\nLocation:
+SF:\x20https://www\.facebook\.com/\r\nVary:\x20Accept-Encoding\r\nContent-
+SF:Type:\x20text/html\r\nX-FB-Debug:\x20Y12R6JSEazeVAv9UiKvZFSw5bNku0Ihinp
+SF:n67n1LQGIxo87zfFnI20LJB9RmMtWGa2b1NpU5nZLIeHD7ZdaNbA==\r\nDate:\x20Thu,
+SF:\x2007\x20Sep\x202017\x2007:21:00\x20GMT\r\nConnection:\x20close\r\nCon
+SF:tent-Length:\x200\r\n\r\n")%r(HTTPOptions,13D,"HTTP/1\.1\x20302\x20Foun
+SF:d\r\nLocation:\x20https://www\.facebook\.com/unsupportedbrowser\r\nVary
+SF::\x20Accept-Encoding\r\nContent-Type:\x20text/html;\x20charset=UTF-8\r\
+SF:nX-FB-Debug:\x20Axt83bjCb6Xf6Ql0YR\+\+t9rl1WB/HStnUE1flAGyAjh7mcXjPt93o
+SF:tBLqYdyt2CSKKt3hFnBv/pGfoIYU6l0XQ==\r\nDate:\x20Thu,\x2007\x20Sep\x2020
+SF:17\x2007:21:01\x20GMT\r\nConnection:\x20close\r\nContent-Length:\x200\r
+SF:\n\r\n")%r(FourOhFourRequest,149,"HTTP/1\.1\x20301\x20Moved\x20Permanen
+SF:tly\r\nLocation:\x20https://www\.facebook\.com/nice%20ports%2C/Tri%6Eit
+SF:y\.txt\.bak\r\nVary:\x20Accept-Encoding\r\nContent-Type:\x20text/html\r
+SF:\nX-FB-Debug:\x20xJ57xa1x8EFwnnYwmMFdxHzWNIMAp7R7xd\+5r4U2QpfSOCAUBGWJO
+SF:sf67RChd1sI7rIXFF/XzKVEo7GUvAibYQ==\r\nDate:\x20Thu,\x2007\x20Sep\x2020
+SF:17\x2007:21:01\x20GMT\r\nConnection:\x20close\r\nContent-Length:\x200\r
+SF:\n\r\n")%r(vmware-esx,C21,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nConten
+SF:t-Type:\x20text/html;\x20charset=utf-8\r\nDate:\x20Thu,\x2007\x20Sep\x2
+SF:02017\x2007:21:02\x20GMT\r\nConnection:\x20close\r\nContent-Length:\x20
+SF:2959\r\n\r\n<!DOCTYPE\x20html>\n<html\x20lang=\"en\"\x20id=\"facebook\"
+SF:>\n\x20\x20<head>\n\x20\x20\x20\x20<title>Facebook\x20\|\x20Error</titl
+SF:e>\n\x20\x20\x20\x20<meta\x20charset=\"utf-8\">\n\x20\x20\x20\x20<meta\
+SF:x20http-equiv=\"cache-control\"\x20content=\"no-cache\">\n\x20\x20\x20\
+SF:x20<meta\x20http-equiv=\"cache-control\"\x20content=\"no-store\">\n\x20
+SF:\x20\x20\x20<meta\x20http-equiv=\"cache-control\"\x20content=\"max-age=
+SF:0\">\n\x20\x20\x20\x20<meta\x20http-equiv=\"expires\"\x20content=\"-1\"
+SF:>\n\x20\x20\x20\x20<meta\x20http-equiv=\"pragma\"\x20content=\"no-cache
+SF:\">\n\x20\x20\x20\x20<meta\x20name=\"robots\"\x20content=\"noindex,nofo
+SF:llow\">\n\x20\x20\x20\x20<style>\n\x20\x20\x20\x20\x20\x20html,\x20body
+SF:\x20{\n\x20\x20\x20\x20\x20\x20\x20\x20color:\x20#141823;\n\x20\x20\x20
+SF:\x20\x20\x20\x20\x20background-color:\x20#e9eaed;\n\x20\x20\x20\x20\x20
+SF:\x20\x20\x20font-family:\x20Helvetica,\x20Lucida\x20Grande,\x20Arial,\n
+SF:\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x2
+SF:0\x20\x20\x20Tahoma,\x20Verdana,\x20sans-serif;\n\x20\x20\x20\x20\x20\x
+SF:20\x20\x20margin:\x200;\n\x20\x20\x20\x20\x20\x20\x20\x20padding:\x200;
+SF:\n\x20\x20\x20\x20\x20\x20\x20\x20text-align:\x20center;\n\x20\x20\x20\
+SF:x20\x20\x20}\n\n\x20\x20\x20\x20\x20\x20#header\x20{\n\x20\x20\x20\x20\
+SF:x20\x20\x20\x20height:\x2030px;\n\x20\x20\x20\x20\x20\x20\x20\x20");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port8008-TCP:V=7.01%I=7%D=9/7%Time=59B155CC%P=x86_64-pc-linux-gnu%r(Get
+SF:Request,43,"HTTP/1\.1\x20302\x20Found\r\nLocation:\x20https://:8010/\r\
+SF:nConnection:\x20close\r\n\r\n")%r(FourOhFourRequest,66,"HTTP/1\.1\x2030
+SF:2\x20Found\r\nLocation:\x20https://:8010/nice%20ports%2C/Tri%6Eity\.txt
+SF:%2ebak\r\nConnection:\x20close\r\n\r\n")%r(GenericLines,42,"HTTP/1\.1\x
+SF:20302\x20Found\r\nLocation:\x20https://:8010\r\nConnection:\x20close\r\
+SF:n\r\n")%r(HTTPOptions,42,"HTTP/1\.1\x20302\x20Found\r\nLocation:\x20htt
+SF:ps://:8010\r\nConnection:\x20close\r\n\r\n")%r(RTSPRequest,42,"HTTP/1\.
+SF:1\x20302\x20Found\r\nLocation:\x20https://:8010\r\nConnection:\x20close
+SF:\r\n\r\n");
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Sep  7 10:22:15 2017 -- 1 IP address (1 host up) scanned in 90.04 seconds

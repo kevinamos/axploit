@@ -1,0 +1,79 @@
+						# self.ids.sr.add_widget(Button(text='PORT',size_hint_y=None ,height=45, pos_hint={'top':1}))
+						# self.ids.sr.add_widget(Button(text='SERVICE',size_hint_y=None, height=45, pos_hint={'top':1}))
+						# self.ids.sr.add_widget(Button(text='STATE',size_hint_y=None,pos_hint={'top':1}, height=40))
+					
+						# self.ids.sr2.add_widget(Label(text="s1"+ str(h), color=(0,0,0,1) ))
+						# self.ids.sr2.add_widget(Label(text="s2"+ str(h), color=(0,0,0,1) ))
+						# self.ids.sr2.add_widget(Label(text="s3"+ str(h), color=(0,0,0,1) ))
+
+				# 	if '-sV' in scan_type_choice:
+				# 		version=1
+				# 		print ('PORT\tSTATE\t\t SERVICE\t VERSION') 
+				# 	else:
+				# 		print ('PORT\tSTATE\t\t SERVICE')			
+				# 	for proto in scanner_object.nmScan[h].all_protocols():
+				# 		lport = scanner_object.nmScan[h][proto].keys()
+				# 		lport.sort()	
+				# 		for port in lport:
+				# 			version=''
+				# 			service=scanner_object.nmScan[h][proto][port]['name'].strip()
+				# 			if scanner_object.version:
+				# 				product=scanner_object.nmScan[h][proto][port]['product']
+				# 				version=scanner_object.nmScan[h][proto][port]['version']
+				# 				extra=scanner_object.nmScan[h][proto][port]['extrainfo']
+				# 				version=str(product) + " " + str(version) + " " + str(extra)			
+				# 			print ('%s\t%s\t\t %s\t %s' % (port, scanner_object.nmScan[h][proto][port]['state'], service,version))
+				# print str(scanner_object.nmScan.scanstats()['totalhosts']) + ' total hosts'
+				# print str(scanner_object.nmScan.scanstats()['uphosts'])	+ ' hosts  Up'		
+
+
+# for protocol in scanner_object.nmScan[host].all_protocols():
+					# 	list_of_ports=scanner_object.nmScan[host][protocol].keys()
+					# 	for port in list_of_ports:
+					# 		self.ids.sr2.add_widget(Button(text="s1"+ str(host), color=(0,0,0,1) ))
+					# 		self.ids.sr2.add_widget(Button(text="s2"+ str(host), color=(0,0,0,1) ))
+					# 		self.ids.sr2.add_widget(Button(text="s3"+ str(host), color=(0,0,0,1) ))							
+
+
+				
+					# b=BoxLayout(orientation='vertical')
+					# b.add_widget()
+					# b.add_widget(Label(text="Host is up", color=(0,0,0,1)))
+					# print h
+					# self.ids.sr2.cols=1
+					# self.ids.sr2.size_hint_x=.5 
+
+					# self.ids.sr2.add_widget(Button(text=str(h)+" is up" , halign='left'))
+					# for i in range(3):
+
+					# 	self.ids.sr2.add_widget(Button(text='Item '+ str(i), color=(0,0,0,1),  halign='left'))
+				
+					# self.ids.sr.add_widget(Button(text='PORT',size_hint_y=None ,height=45, pos_hint={'top':1}))
+					# self.ids.sr.add_widget(Button(text='SERVICE',size_hint_y=None, height=45, pos_hint={'top':1}))
+					# self.ids.sr.add_widget(Button(text='STATE',size_hint_y=None,pos_hint={'top':1}, height=40))
+				
+					# self.ids.sr2.add_widget(Label(text="s1"+ str(h), color=(0,0,0,1) ))
+					# self.ids.sr2.add_widget(Label(text="s2"+ str(h), color=(0,0,0,1) ))
+					# self.ids.sr2.add_widget(Label(text="s3"+ str(h), color=(0,0,0,1) ))
+
+			# 	if '-sV' in scan_type_choice:
+			# 		version=1
+			# 		print ('PORT\tSTATE\t\t SERVICE\t VERSION') 
+			# 	else:
+			# 		print ('PORT\tSTATE\t\t SERVICE')			
+			# 	for proto in scanner_object.nmScan[h].all_protocols():
+			# 		lport = scanner_object.nmScan[h][proto].keys()
+			# 		lport.sort()	
+			# 		for port in lport:
+			# 			version=''
+			# 			service=scanner_object.nmScan[h][proto][port]['name'].strip()
+			# 			if scanner_object.version:
+			# 				product=scanner_object.nmScan[h][proto][port]['product']
+			# 				version=scanner_object.nmScan[h][proto][port]['version']
+			# 				extra=scanner_object.nmScan[h][proto][port]['extrainfo']
+			# 				version=str(product) + " " + str(version) + " " + str(extra)			
+			# 			print ('%s\t%s\t\t %s\t %s' % (port, scanner_object.nmScan[h][proto][port]['state'], service,version))
+			# print str(scanner_object.nmScan.scanstats()['totalhosts']) + ' total hosts'
+			# print str(scanner_object.nmScan.scanstats()['uphosts'])	+ ' hosts  Up'		
+		
+	#self.b=self.ids.sr.add_widget(BoxLayout(orientation='horizontal', pos_hint={'top':1}, id='scans'))

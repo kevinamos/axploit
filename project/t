@@ -1,0 +1,12 @@
+# Nmap 7.01 scan initiated Fri Aug 18 16:17:22 2017 as: nmap -ot localhost localhost.xml
+Failed to resolve "localhost.xml".
+mass_dns: warning: Unable to determine any DNS servers. Reverse DNS is disabled. Try using --system-dns or specify valid servers with --dns-servers
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.0000060s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE
+80/tcp   open  http
+3306/tcp open  mysql
+5432/tcp open  postgresql
+
+# Nmap done at Fri Aug 18 16:17:24 2017 -- 1 IP address (1 host up) scanned in 1.66 seconds

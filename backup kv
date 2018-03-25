@@ -1,0 +1,127 @@
+#:kivy 1.0
+#:import Button kivy.uix.button.Button
+<MainWindow>:
+    orientation: "vertical"
+    open_button: btn_open
+    save_button: btn_save
+    save_as_button: btn_dos
+
+    copy_button: btn_copy
+    paste_button: btn_Mitm
+    delete_button: btn_delete
+    pos_hint:{'top':1}
+
+
+
+    BoxLayout:
+    
+        size_hint: (1,None)
+        size: (1,25)
+        orientation: "horizontal"
+        
+
+        Button:
+            id: btn_open
+            text: "Scanner"
+            border:3,3, 3,3
+            on_press: root.scanner()
+   
+            
+
+            
+        Button:
+            id: btn_save
+            text: "Sniffer"
+            border:3,3, 3,3
+            on_press: root.Sniffer()
+        Button:
+            id: btn_Mitm
+            text: "MItM  Attacks"
+            on_press: root.Mitm()
+            
+        Button:
+            id: btn_dos
+            text: "DOS"
+            on_press: root.DOS()
+
+        Button:
+            id: btn_copy
+            text: "Wireless"
+            on_press: root.on_copy()
+            
+            
+        Button:
+            id: btn_delete
+            text: "Help"
+            on_press: root.Help()
+            
+	BoxLayout:
+		orientation: "vertical"		
+        
+        BoxLayout: 
+        	orientation:'vertical'
+        	padding:30
+			Label:
+				text:"Target Host"
+				size_hint:(.5, None)
+				width:180
+				pos_hint:{'top':1}
+
+				height:30a
+				markup: True
+				shorten: True
+				ellipsis_options: {'color':(1,0.5,0.5,1),'underline':True}
+				
+			
+				pos_hint:{'top':1}
+				color:[255,0.2,3,5]
+			TextInput:
+				size_hint:(.5, None)
+				width:180
+				pos_hint:{'top':1}
+
+				height:30
+		BoxLayout:
+			orientation:'horizontal'
+			padding:30
+			ComboEdit:
+				size_hint:(None, None)
+				width:180
+				height:30
+				pos_hint:{'top':.8}
+				text:'Choose a scan type'
+				options:
+					[Button(text = str(app.scan_types[x]),size_hint_y=None,height=30)for x in range(len(app.scan_types))]			
+
+			Button:
+				size_hint:(None, None)
+				pos_hint:{'top':.8}
+				text:'Scan'
+				height:30
+				width:120
+			
+		BoxLayout:
+			size_hint:(1, None)	
+			height:550
+			padding:30
+			Nmap_output:
+				size_hint: (1, 1)
+				pos_hint: {'top': 1}
+				do_default_tab: False
+
+				TabbedPanelItem:
+					text: 'first tab'
+					RstDocument:
+						text: 'First tab content area'
+				TabbedPanelItem:
+					text: 'tab2'
+
+					RstDocument:
+						text: 'Second tab content area'
+				TabbedPanelItem:
+					text: 'tab3'
+					RstDocument:
+						text:'\n'.join(("Hello world", "-----------","You are in the third tab."))
+
+
+

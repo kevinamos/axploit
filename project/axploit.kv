@@ -1,0 +1,1014 @@
+#:kivy 1.0
+#:import Button kivy.uix.button.Button
+#:import KivyLexer kivy.extras.highlight.KivyLexer
+<SettingsScreen>:
+	Button:
+		text:"app settings"
+# <MenuScreen>:
+#     BoxLayout:
+#         Button:
+#             text: 'Goto settings'
+#             on_press: root.manager.current = 'settings'
+#         Button:
+#             text: 'Goto ufala'
+#             on_press: root.manager.current = 'ufala'
+
+#         Button:
+#             text: 'Quit'
+
+
+<MenuScreen,snifferScreen,SettingsScreen, MitmScreen, RseScreen, DosScreen, HelpScreen>:
+	id:main
+	fullscreen:True
+    orientation: "vertical"
+    __safe_id:[scanner.__self__]
+	__safe_id:[.btn_sniffer__self__]
+	__safe_id:[btn_Mitm.__self__]
+	__safe_id:[btn_rse.__self__]
+	__safe_id:[btn_help.__self__]
+	foreground_color: (1, 1, 1, 1)
+	canvas:
+
+        Color:
+            rgb: 1, 1, 1
+        Rectangle:
+            #source: 'data/images/background.jpg'
+            size: self.size
+    pos_hint:{'top':1}
+	#scan_results:scan_results 
+
+    BoxLayout:    
+        size_hint: ( 1,.05 ) 
+        height:40
+        orientation: "horizontal" 
+        pos_hint:{ 'top':1 }            
+        Button:
+            id: scanner
+            text: "Scanner"
+            border:3,3, 3,3
+            on_press: root.manager.current = 'Menu'
+            #background_normal:''
+			# Image:
+			# 	source:'images/scanner.jpg'
+			# 	y:self.parent.y + self.parent.height-130
+			# 	x:self.parent.x 
+			# 	center_x:self.parent.center_x
+			# 	center_y:self.parent.center_y
+			# 	size:(210, 210)
+			# 	allow_stretch:True
+        Button:
+            id: btn_sniffer
+            text: "Network Sniffer"
+            border:3,3, 3,3
+            on_press: root.manager.current = 'Sniffer'
+            #background_normal:''
+			# Image:
+			# 	source:'images/scanner.jpg'
+			# 	y:self.parent.y + self.parent.height-130
+			# 	x:self.parent.x 
+			# 	center_x:self.parent.center_x
+			# 	center_y:self.parent.center_y
+			# 	size:(210, 210)
+			# 	allow_stretch:True
+        Button:
+            id: btn_Mitm
+            text: "MItM  Attacks"
+            on_press: root.manager.current = 'Mitm'
+            #background_normal:''
+			# Image:
+			# 	source:'images/scanner.jpg'
+			# 	y:self.parent.y + self.parent.height-130
+			# 	x:self.parent.x 
+			# 	center_x:self.parent.center_x
+			# 	center_y:self.parent.center_y
+			# 	size:(210, 210)
+			# 	allow_stretch:True
+            
+        # Button:
+        #     id: btn_dos
+        #     text: "DOS"
+        #     on_press: root.manager.current = 'DOS'
+            
+        Button:
+            id: btn_rse
+            text: "RSE"
+            on_press: root.manager.current = 'RSE'
+            #background_normal:''
+			# Image:
+			# 	source:'images/scanner.jpg'
+			# 	y:self.parent.y + self.parent.height-130
+			# 	x:self.parent.x 
+			# 	center_x:self.parent.center_x
+			# 	center_y:self.parent.center_y
+			# 	size:(210, 210)
+			# 	allow_stretch:True
+            
+            
+        Button:
+            id: btn_help
+            text: "Help"
+            on_press: root.manager.current = 'Help'
+            #background_normal:''
+			# Image:
+			# 	source:'images/scanner.jpg'
+			# 	y:self.parent.y + self.parent.height-130
+			# 	x:self.parent.x 
+			# 	center_x:self.parent.center_x
+			# 	center_y:self.parent.center_y
+			# 	size:(210, 210)
+			# 	allow_stretch:True
+        # Button:
+        # 	text:"Settings"
+        # 	on_press: root.manager.current = 'Settings'
+        # Button:
+        #     id: press
+        #     text: "press test"
+        #     on_press:root.warning()
+<MenuScreen>:
+	__safe_id:[target_host.__self__]
+	__safe_id:[dropdown.__self__]
+	__safe_id:[side_bar.__self__]
+	__safe_id:[editor_pane.__self__]
+	__safe_id:[scanner_body.__self__]
+	__safe_id:[scroll_bar.__self__]
+	__safe_id:[scan_type_choice.__self__]
+	__safe_id:[scan_command.__self__]
+	__safe_id:[reactive_layout.__self__]
+	__safe_id:[scan_info.__self__]
+	__safe_id:[wgt_drop.__self__]
+
+
+
+	__safe_id:[syn_scan.__self__]
+	__safe_id:[connect_scan.__self__]
+	__safe_id:[udp_scan.__self__]
+	__safe_id:[version_scan.__self__]
+	__safe_id:[idle_scan.__self__]
+	__safe_id:[ack_scan.__self__]
+	__safe_id:[fin_scan.__self__]	
+	__safe_id:[ping_scan.__self__]
+	BoxLayout:	
+		id:scanner_body
+		padding:20	
+		orientation:'vertical'
+		pos_hint:{'top':.9}		   
+		GridLayout:
+			size_hint:(1,None)
+			pos_hint:{'top':1}
+			height:30
+			size_hint_x:1
+			cols:7
+			Label:
+				text:'Target'
+				text_size:self.size
+				halign:'left'
+				size_hint_x:1.18
+				color:(0,0,0,1)
+
+			TextInput:	
+				pos_hint:{'top':1}			
+				hint_text:"Target Host"	
+				#focus:True
+				size_hint_x:1.5
+				
+				
+				id:target_host
+			Label:
+				text:'Scan type'	
+				color:(0,0,0,1)	
+			Button:		
+				pos_hint:{'top':1}
+				size_hint_x:1.5
+				text:'Syn Scan'
+				id:scan_type_choice
+				on_release:dropdown.open(self)
+
+			Widget:
+				on_parent:dropdown.dismiss()
+				id:wgt_drop
+			DropDown:
+				id:dropdown
+				on_select:scan_type_choice.text='{}'.format(args[1])
+				Button:
+					id:syn_scan
+					text:"Syn Scan"
+					size_hint_y:None
+					height:30
+					on_release:dropdown.select('-sS')
+
+				Button:
+					id:connect_scan
+					text:"TCP connect scan"
+					size_hint_y:None
+					height:30
+					on_release:dropdown.select('-sT')
+				Button:
+					id:ping_scan
+					text:"Ping Scan -sn"
+					size_hint_y:None
+					height:30
+					on_release:dropdown.select('-sn')
+				Button:
+					id:udp_scan
+					text:"UDP scan -sU"
+					size_hint_y:None
+					height:30
+					on_release:dropdown.select('-sU')
+				Button:
+					id:ack_scan
+					text:"Ack Scan"
+					size_hint_y:None
+					height:30
+					on_release:dropdown.select('-sA')
+				Button:
+					id:ack_scan
+					text:"Os detection Scan"
+					size_hint_y:None
+					height:30
+					on_release:dropdown.select('-O')
+				Button:
+					id:version_scan
+					text:"Version Detection"
+					size_hint_y:None
+					height:30
+					on_release:dropdown.select('-sV')		      				
+			Button:
+				text:'Scan'
+				size_hint:(1,None)
+				width:100
+				pos_hint:{'top':1}
+				height:30	
+				background_color:(128,128,128)
+				on_press: root.scan(scan_type_choice.text, target_host.text)
+			Button:
+				text:'Reset'
+				size_hint:(1,None)
+				
+				pos_hint:{'top':1}
+				height:30	
+				
+				on_press:sr.clear_widgets()
+				on_press:sr2.clear_widgets()
+				#background_normal:''
+				on_press:target_host.text=''	
+				on_press:scan_type_choice.text='Syn Scan'
+				on_press:scan_command.text=''
+								
+		# Label:
+		# 	text_size:self.size
+		# 	halign:'left'
+		# 	text:'Command'
+
+		GridLayout:
+			size_hint_y:None
+			height:30
+			cols:2
+			Label:
+				color:(0,0,0,1)
+				text_size:self.size
+				halign:'left'
+				text:'Command'
+				size_hint_x:.1
+			TextInput:	
+				id:scan_command
+				pos_hint:{'top':1}			
+				hint_text:"Command e.g. nmap 127.0.0.1 -sO"	
+				size_hint:(.6,None)
+				height:30				
+							
+		BoxLayout:
+			id: reactive_layout
+			orientation: 'vertical' if self.width < self.height else 'horizontal'
+			Splitter:
+            	id: editor_pane
+            	max_size: 400
+            	min_size: 100
+            	vertical: 1 if reactive_layout.width < reactive_layout.height else 0
+            	sizable_from: 'bottom' if self.vertical else 'right'
+            	size_hint: (1, None) if self.vertical else (None, 1)
+            	size: 200, 400
+            	on_vertical:
+                	mid_size = self.max_size/2
+                	if args[1]: self.height = mid_size
+                	if not args[1]: self.width = mid_size
+                GridLayout:
+                	cols:1
+	                Button:
+	                	text:'Hosts'
+	                	size_hint_y:None
+	                	height:30
+	                	on_press:root.get_hosts()
+	                	pos_hint:{'top':1}
+	                Button:
+	                	text:'services'
+	                	size_hint_y:None
+	                	height:30
+	                	pos_hint:{'top':1} 
+	                	on_press:root.get_services()  
+	                ScrollView:
+	                	height:600
+		                GridLayout: 
+		                	pos_hint:{'top':1}
+		                	cols:1
+		                	id:side_bar	
+		                	height:1300
+				# ScrollView:
+				# 	id:scroll_bar
+				# 	scroll_type: ['bars', 'content']
+				#     bar_width: 4
+				#     size_hint_y:None
+				#     height:600
+				# 	BoxLayout:
+				# 		orientation:'vertical'
+				# 		size_hint_y:None
+				# 		size_hint_x:.5
+				# 		spacing:0	
+			BoxLayout:	
+				id:scan_info
+				orientation:'vertical'						
+				BoxLayout:
+					BoxLayout:
+						orientation:'vertical'
+						GridLayout:
+							cols:3
+							size_hint_x:1
+							id:sr 	
+						ScrollView:
+							bar_width:10
+							bar_color:(1,1,1,.6)
+							size_hint_x:1
+							scroll_type: ['bars', 'content']
+							bar_width: 4
+							size_hint_y:None
+							height:600  
+							BoxLayout:
+								orientation:'vertical'
+								size_hint_y:None
+								size_hint_x:1
+								spacing:0
+								id:sr2  
+
+
+<MenuScreen>:
+
+	FloatLayout:
+		id:spin
+
+		# canvas.before:
+		# 	PushMatrix
+		# 	Rotate
+		# 		angle: root.angle
+		# 		axis:0, 0, 1
+		# 		origin:root.center
+		# canvas.after:
+		# 	PopMatrix
+		Image:
+			id:img_spin
+			source:'loading-pls.gif'
+			size_hint:None,None
+			size:400, 400
+			pos_hint:{'center_x':0.5, 'center_y': 0.5}
+
+
+<MitmScreen>:
+	pos_hint:{'top':1}
+	__safe_id:[dns_spoof_button.__self__]
+
+	__safe_id:[dropdown_arp.__self__]
+
+	__safe_id:[interface_choice_arp.__self__]
+
+	__safe_id:[eth0.__self__]
+	__safe_id:[wlan0.__self__]
+
+
+	GridLayout:
+		cols:1
+		id:mitmbody
+		padding:20	
+		orientation:'vertical'
+		pos_hint:{'top':.9}	
+
+		GridLayout:
+			cols:2		
+			size_hint:(1,None)
+			pos_hint:{'top':1}
+			height:30
+
+			Button:
+				text:'ARP Spoofing'
+				# color:(0,0,0,1)
+				# background_color:(242,242,242,1)
+				on_press:root.view_arp_spoofer()
+				on_release:dns_spoofing_status.opacity=0
+				on_release:arp_spoofing_status.opacity=1
+				on_release:dns_filed_desc.opacity=1
+
+				#on_press:arp_spoofing.add_widget(Button(pos_hint={'top':1}, text='nnnnnn', size_hint=(.5, .3)) )
+			
+			Button:
+				text:'DNS Spoofing'
+				# color:(0,0,0,1)
+				# background_color:(242,240,100,1)
+				#on_press:arp_spoofing.clear_widgets()
+				
+				#on_press:root.add_widget(tst)
+				on_press:root.view_dns_spoofer()
+				on_release:dns_spoofing_status.opacity=1
+				on_release:arp_spoofing_status.opacity=0
+				on_press:dns_filed_desc.opacity=0
+ 
+			# Button:
+			# 	text:'ICMP Redirection'
+		BoxLayout:
+			orientation:'vertical'
+			id:mitm_big
+			pos_hint:{'top':.1}
+			size_hint_y:None
+			height:200
+			Label:
+				id:dns_spoofing_status
+				opacity:0
+				text:''
+				size_hint_y:None
+				height:40
+				color:(0,0,0,1)
+				pos_hint:{'top':.15}
+			Label:
+				id:arp_spoofing_status
+				text:''
+				opacity:0
+				size_hint_y:None
+				height:40
+				color:(0,0,0,1)
+				pos_hint:{'top':.15}
+			GridLayout:
+				pos_hint:{'top':.5}
+				cols:5
+				id:dns_fields
+				opacity:0
+
+				TextInput:
+					pos_hint:{'top':1}
+					size_hint_y:None
+					height:0
+					id:victim_ip
+					hint_text:'Victim IP'	
+
+				TextInput:
+					pos_hint:{'top':1}
+					size_hint_y:None
+					height:0
+					id:faked_ip
+					size_hint_x:1
+					hint_text:'fake/spoofed ip'		
+
+				TextInput:
+					pos_hint:{'top':1}
+					size_hint_y:None
+					height:0
+					id:address_to_spoof
+					hint_text:'Address to spoof eg.facebook.com'
+				Button:
+					id:dns_spoof_button
+					text:'Start Dns spoofing'
+					pos_hint:{'top':1}
+					size_hint_y:None
+					height:30
+					size_hint_x:.8
+					background_color:(.2, .2, .2)
+					on_release:root.handle_dns_spoofing()
+					on_release:attack_status.opacity=1
+
+				Button:
+					text:'stop'
+					pos_hint:{'top':1}
+					size_hint_y:None
+					height:30
+					background_color:(.2, .2, .2)
+					on_release:root.stop_dns_spoofing()
+					on_release:attack_status.opacity=0
+					on_release:dns_spoofing_status.text='Stopping DNS spoofing .. '
+				Label:
+					text:"(Optional Ip address of the victim machine)"
+					pos_hint_y:{'top':.5}
+					size_hint_y:None
+					height:40
+					halign:'left'
+					valign:'bottom'
+					color:(0,0,0,1)
+				Label:
+					text:"(Mandatory Fake Ip address)"
+					pos_hint_y:{'top':.5}
+					size_hint_y:None
+					height:40
+					halign:'left'
+					valign:'bottom'
+					color:(0,0,0,1)
+
+				Label:
+					text:"(Optional target address)"
+					pos_hint_y:{'top':.5}
+					size_hint_y:None
+					height:40
+					halign:'left'
+					valign:'bottom'
+					color:(0,0,0,1)
+
+			GridLayout:
+				id:arp_fields
+				pos_hint:{'top':1}
+				cols:5
+				opacity:0
+
+				Button:		
+					pos_hint:{'top':.6}
+					size_hint:(3, None)
+					height:30
+					text:'Choose Interface'
+					id:interface_choice_arp
+					on_release:dropdown_arp.open(self)
+						
+				Widget:
+					on_parent:dropdown_arp.dismiss()
+				DropDown:
+					id:dropdown_arp
+					on_select:interface_choice_arp.text='{}'.format(args[1])
+					Button:
+						text:"eth0"
+						id:wlan0
+						size_hint_y:None
+						height:30
+						on_release:dropdown_arp.select('eth0')
+					Button:
+						text:"wlan0"
+						id:eth0
+						size_hint_y:None
+						height:30
+						on_release:dropdown_arp.select('wlan0')
+
+				TextInput:
+					pos_hint:{'top':1}
+					size_hint_y:None
+					size_hint_x:2
+					height:0
+					id:arp_victim_ip
+					hint_text:'Victim Ip'				
+				# TextInput:
+				# 	pos_hint:{'top':1}
+				# 	size_hint_y:None
+				# 	height:0
+				# 	id:arp_spoofed_ip
+				# 	hint_text:'Spoofed IP'
+				Button:
+					text:'Start Arp spoofing'
+					pos_hint:{'top':1}
+					size_hint_y:1
+				
+					background_color:(.2, .2, .2)
+					on_release:root.handle_arp_spoofing(arp_victim_ip.text, interface_choice_arp.text)
+				Button:
+					text:'stop'
+					pos_hint:{'top':1}
+					size_hint_y:1
+					background_color:(.2, .2, .2)
+					on_release:root.stop_dns_spoofing()
+
+					on_release:arp_attack_status.opacity=0
+			GridLayout:
+				cols:3
+				id:dns_filed_desc
+				opacity:0
+				padding:40
+
+				Label:
+					text:"(mandatory)"
+					pos_hint_y:{'top':1}
+					size_hint_y:None
+					height:30
+					halign:'left'
+					valign:'bottom'
+					color:(0,0,0,1)
+				Label:
+					text:"(Optional victim Ip address)"
+					pos_hint_y:{'top':.5}
+
+					size_hint_y:None
+					height:40
+					text_size:self.size
+
+					size_hint_x:1
+					halign:'left'
+					valign:'bottom'
+					color:(0,0,0,1)
+    	GridLayout:
+    		size_hint_y:None
+    		cols:2
+    		size_hint_y:1
+    		pos_hint_y:{'top':.5}
+
+
+    		BoxLayout:
+    			id:attack_status
+    			opacity:0
+    			Label:
+    				text:'In progress..'
+    				font_size:20
+    				color:(0,0,0,1)
+    			Image:
+    				padding:0
+					source:'dns.gif'
+					size_hint:None,None
+					size:320, 300
+					pos_hint:{'center_x':1, 'center_y': .5}  
+    		BoxLayout:
+    			id:arp_attack_status
+    			opacity:0
+    			Label:
+    				text:"In progress.."
+    				font_size:20
+    				color:(0,0,0,1)
+    			Image:
+    				padding:1
+					source:'arp.gif'
+					size_hint:None,None
+					size:320, 300
+					pos_hint:{'center_x':1, 'center_y': .5}
+
+<snifferscreen>:
+	__safe_id:[interface_choice.__self__]
+	__safe_id:[dropdown3.__self__]
+	pos_hint:{'top':1}
+	GridLayout:
+		cols:1
+		#orientation:'vertical'
+
+
+		BoxLayout:
+			size_hint_y:None
+			height:100
+			pos_hint:{'top':.6}
+			size_hint_x:1
+			padding:40
+			Button:		
+				pos_hint:{'top':.6}
+				size_hint:(3, None)
+				height:36
+				text:'Choose Interface'
+				id:interface_choice
+				on_release:dropdown3.open(self)
+					
+			Widget:
+				on_parent:dropdown3.dismiss()
+			DropDown:
+				id:dropdown3
+				on_select:interface_choice.text='{}'.format(args[1])
+				Button:
+					text:"eth0"
+					size_hint_y:None
+					height:36
+					on_release:dropdown3.select('eth0')
+				Button:
+					text:"wlan0"
+					size_hint_y:None
+					height:36
+					on_release:dropdown3.select('wlan0')
+			# Button:		
+			# 	pos_hint:{'top':.9}
+			# 	size_hint:(1,None)
+			# 	height:30
+			# 	text:'Choose what to sniff'
+			# 	id:sniff_type
+			# 	on_release:dropdown_what_to_sniff.open(self)
+					
+			# Widget:
+			# 	on_parent:dropdown_what_to_sniff.dismiss()
+			# DropDown:
+			# 	id:dropdown_what_to_sniff
+			# 	on_select:sniff_type.text='{}'.format(args[1])
+			# 	on_select:root.start_sniffer(args[1])
+				# Button:
+				# 	text:"Filter packets"
+				# 	size_hint_y:None
+				# 	height:30
+					#on_release:dropdown_what_to_sniff.select('All traffic')
+
+				# Button:
+				# 	text:"Specific Ip"
+				# 	size_hint_y:None
+				# 	height:30
+				# 	on_release:dropdown_what_to_sniff.select('specific ip')
+	
+			TextInput:
+				hint_text:"Enter Target ip"
+                id:ip_to_sniff
+                size_hint_x:4
+                size_hint_y:None
+                height:36
+                pos_hint:{'top':.6}
+
+            BoxLayout:
+            	orientation:'horizontal'
+            	size_hint_x:2.5
+				Button:
+					text:'Start'
+					size_hint:(1,None)
+					width:60
+					pos_hint:{'top':.6}
+					height:35	
+					# background_color: (0,1,0,1)
+					background_normal: "" 
+					on_release:root.sniff_traffic(interface_choice.text)
+					on_release:sniffer_img.source ='images/sniff6.gif'
+
+					on_release:sniffing_status.text='Sniffing traffic...'
+					on_release:sniffer_img.opacity=1
+
+					Image:
+						source:'images/222.jpg'
+						y:self.parent.y + self.parent.height-73
+						x:self.parent.x 
+						center_x:self.parent.center_x
+						center_y:self.parent.center_y
+						size:(110, 110)
+						allow_stretch:True
+				Button:
+					text:'Stop'
+					size_hint_x:None
+				
+					#background_color: (255,0,0,1)
+					background_normal: ""
+					size_hint:(1,None)
+					pos_hint:{'top':.6}
+					width:60
+					height:35
+					on_release:root.stop_sniffer()
+					on_release:sniffer_img.source='/'
+					on_release:sniffer_img.opacity=0
+					on_release:sniffing_status.text=''
+					Image:
+						source:'images/red444.jpg'
+						y:self.parent.y + self.parent.height-82
+						x:self.parent.x 
+						center_x:self.parent.center_x
+						center_y:self.parent.center_y
+						size:128,128
+						allow_stretch:True
+		#BoxLayout:
+
+		BoxLayout:
+			padding:50
+			BoxLayout:
+				orientation:'vertical'
+				BoxLayout:
+					size_hint_x:.7
+					size_hint_y:None
+					height:90
+					pos_hint:{'top':1}
+					# Button:
+					# 	text:'kkkkk'
+					Label:
+						id:sniffing_status
+						size_hint_x:5
+						font_size:16
+						text:''
+						color:(0,0,0,1)
+						text_size:self.size
+						halign:'right'
+						valign:'middle'
+						#background_normal:''
+					Image:
+						id:sniffer_img
+						opacity:0
+						source:'images/sniff6.gif'
+						y:self.parent.y + self.parent.height-65
+						x:self.parent.x 
+						center_x:self.parent.center_x
+						center_y:self.parent.center_y
+						size:230,230
+						allow_stretch:True
+
+				GridLayout:
+					cols:1
+					ScrollView:
+						bar_width:40
+						bar_color:(1,1,1,.6)
+						size_hint_x:1
+						scroll_type: ['bars', 'content']
+						bar_width: 4
+						size_hint_y:None
+						# height:550  
+						GridLayout:
+							id:sniffer_results
+							cols:3
+							size_hint_y:None
+							# height:800
+							size_hint_x:1
+							spacing:0
+		
+							Button:
+								text:'Host IP'
+								size_hint_y:None
+								height:30
+								size_hint_x:.3
+							Button:
+								text:'dest. Ip'	
+								size_hint_y:None
+								height:30
+								size_hint_x:.3
+							# Button:
+							# 	text:'Protocol'
+							# 	size_hint_y:None
+							# 	height:30
+							# 	size_hint_x:.3
+							# Button:
+							# 	text:'Time stamp'
+							# 	size_hint_y:None
+							# 	height:30
+							# 	size_hint_x:.3
+							Button:
+								text:'packet/data'
+								size_hint_y:None
+								height:30
+
+							
+							
+
+
+
+
+
+<DosScreen>:
+	pos_hint:{'top':1}
+	GridLayout:
+		cols:1
+		id:dosbody
+		padding:20	
+		orientation:'vertical'
+		pos_hint:{'top':.9}	
+		BoxLayout:
+			orientation: "horizontal"		
+			size_hint:(1,None)
+			pos_hint:{'top':1}
+			height:30
+			TextInput:
+				hint_text:'Enter target IP'
+				pos_hint:{'top':.9}
+			Button:		
+				pos_hint:{'top':.9}
+				size_hint:(1, None)
+				height:30
+				text:'Type of DOS'
+				id:interface_choice
+				on_release:dropdown2.open(self)
+					
+			Widget:
+				on_parent:dropdown2.dismiss()
+			DropDown:
+				id:dropdown2
+				on_select:interface_choice.text='{}'.format(args[1])
+				Button:
+					text:"Reset daemon"
+					size_hint_y:None
+					height:30
+					on_release:dropdown2.select('Reset daemon')
+				Button:
+					text:"packet flood"
+					size_hint_y:None
+					height:30
+					on_release:dropdown2.select('packet flood')
+				Button:
+					text:"MAC flood"
+					size_hint_y:None
+					height:30
+		
+			
+			Button:
+				text:'Launch'
+				size_hint:(1, None)
+				height:30	
+				#width:200
+	
+<RseScreen>:
+	__safe_id:[commands.__self__]
+	__safe_id:[port.__self__]
+	__safe_id:[Launch.__self__]
+	#__safe_id:[rse_interface_choice.__self__]
+	#__safe_id:[dropdown_rse.__self__]
+	pos_hint:{'top':1}
+	BoxLayout:
+		orientation:'vertical'
+		padding:20	
+		pos_hint:{'top':.9}	
+		BoxLayout:
+			size_hint_y:.065
+			TextInput:
+				size_hint_x:2.5
+				hint_text:'Listening port'
+				id:port
+			Button:
+				id:Launch
+				size_hint_x:1.5
+				text:'Launch'
+				on_release:root.call_server(port.text) 
+			Button:
+				size_hint_x:1.5
+				on_release:root.stop_server()
+				text:'disconnect'
+		Label:
+			text:''
+			size_hint_y:None
+			height:30
+			id:serve
+			color:(0,0,0,1)
+		GridLayout:
+			cols:2
+			size_hint_y:.065
+			TextInput:
+				hint_text:'commamd line'
+				id:commands
+				text:">>#"
+				multiline:False
+				#on_text_validate:commands.text=commands.text
+				# on_text_validate:root.client_serve()
+				# on_text_validate:commands.focus=True
+			Button:
+				text:"Execute command"
+				on_release:root.client_serve()
+		TextInput:
+			hint_text:'Victim Output/Results'
+			id:rse_output
+			text:''
+			multiline:False
+
+<tabs>:
+    size_hint: 1, 1
+    pos_hint:{'top':.9} #{'center_x': 1, 'center_y': 1}
+    do_default_tab: False
+    TabbedPanelItem:
+        text: 'Scanner Help'
+        RstDocument:
+        	source:'scanner.rst'       
+	TabbedPanelItem:
+        text: 'Sniffer Help'
+        RstDocument:
+            source:'sniffer.rst'
+    TabbedPanelItem:
+    	text:'Rse Help'
+    	RstDocument:
+    		source:'Rse.rst'
+    TabbedPanelItem:
+        text: 'Mitm Help'
+        RstDocument:
+            source:'mitm.rst'
+                	
+<HelpScreen@tabs>
+	pos_hint:{'top':1}
+	GridLayout:
+		cols:1
+		#id:helpbody
+		padding:20	
+		pos_hint:{'top':.9}	
+	tabs:
+		id:help_body
+
+
+
+
+	
+			# RstDocument:
+			# 	text:"**Man in the Middle Attacks.**"
+
+			# ScrollView:
+		# 	scroll_type: ['bars', 'content']
+		# 	bar_width: 4
+		# 	size_hint_y:None
+		# 	height:600
+		# 	BoxLayout:
+		# 		orientation:'horizontal'
+		# 		BoxLayout:
+		# 			orientation:'vertical'
+		# 			size_hint_y:None
+		# 			size_hint_x:.5
+		# 			spacing:0
+				  
+		# 		BoxLayout:
+		# 			canvas:
+		# 				Color:
+	 #            			rgba: 47 / 255., 167 / 255., 212 / 255., .1
+		# 				Rectangle:
+	 #            			pos: self.x, self.y + 1
+		# 					size: self.size
+		# 					Color:
+		# 						rgb: .2, .2, .2
+		# 				Rectangle:
+		# 					pos: self.x, self.y - 2
+		# 					size: self.width, 1
+		# 			orientation:'vertical'
+		# 			size_hint_y:None
+		# 			size_hint_x:.5
+		# 			spacing:0
+		# 			id:sr2    
+				   
+		
+		# 
