@@ -40,16 +40,6 @@ def client_connect(host, port):
 		client.close()
 			
 def  main():
-	#parser=argparse.ArgumentParser('victim client commander')
-	#parser.add_argument('-a', '--address', type=str, help='The server Ip address')
-	#parser.add_argument('-p', '--port', type=int, help='The server port number')
-	#args=parser.parse_args()
-	#if args.address==None:
-		#usage()
-	#target_host=args.address
-	#port_number=args.port
-	#client_connect(target_host, port_number)
-
 	target_host='127.0.0.1'
 	port_number='443'
 	client_connect(target_host, port_number)
