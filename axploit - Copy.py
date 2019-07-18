@@ -1,12 +1,10 @@
 #!/usr/bin/python
+from scapy.all import sniff, sendp, ARP, Ether
 import socket
 import threading
+from kivy.clock import Clock
 import time
 import os
-import sys
-import nmap
-from scapy.all import sniff, sendp, ARP, Ether
-from kivy.clock import Clock
 from kivy.uix.dropdown import DropDown
 from kivy.core.window import Window
 from kivy.graphics import *
@@ -28,6 +26,8 @@ from kivy.animation import Animation
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.rst import RstDocument
+import nmap
+import sys
 from scanner.scanner import *
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 from kivy.uix.modalview import ModalView
@@ -87,6 +87,8 @@ def arp_poison_callback(packet):
             sendp(device_b, iface='wlan0')
 
 # end of arp spoofing
+
+
 class SnifferScreen(Screen):
     """  sniff data on a specified interface"""
     def __init__(self, *args, **kwargs):
@@ -1456,9 +1458,15 @@ class ComboEdit(TextInput):
             self.drop_down.open(self)
         return super(ComboEdit, self).on_touch_up(touch)
 
+
 class Nmap_output(TabbedPanel):
     pass
+
+
 class Sniffer_screen(ModalView):
     pass
+
+
 if __name__ == '__main__':
+
     AxploitApp().run()

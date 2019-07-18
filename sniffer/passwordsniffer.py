@@ -28,7 +28,7 @@ class sniffer():
 	def handle_packet(self, hdr, data):
 		if self.stop !='':#sentinel for stopping the sniffer
 			self.matched_packet=''
-			print 'stopped snifing'
+			print ('stopped snifing')
 			exit()
 		# Patterns that match usernames and passwords
 		pattern = re.compile(r"""(?P<found>(USERNAME|PASS|email|txtusername|
@@ -49,8 +49,8 @@ class sniffer():
 				self.destination_ip=ip_pkt.get_ip_dst()
 				self.destination_port =tcp_pkt.get_th_dport()
 
-				print "%s:%d -> %s:%d" % (ip_pkt.get_ip_src(),tcp_pkt.get_th_sport(),ip_pkt.get_ip_dst(),tcp_pkt.get_th_dport())
-				print "\t%s\n" % (match.groupdict()['found'])
+				print ("%s:%d -> %s:%d" % (ip_pkt.get_ip_src(),tcp_pkt.get_th_sport(),ip_pkt.get_ip_dst(),tcp_pkt.get_th_dport()) )
+				print ("\t%s\n" % (match.groupdict()['found']) )
 				self.matched_packet=match.groupdict()['found']
 		else:
 			pattern = re.compile(r"""(?P<found>(SESSION|SESSION_?KEY|TOKEN|AUTH|
@@ -62,8 +62,8 @@ class sniffer():
 					self.source_port=tcp_pkt.get_th_sport()
 					self.destination_ip=ip_pkt.get_ip_dst()
 					self.destination_port =tcp_pkt.get_th_dport()
-					print "%s:%d ->22 %s:%d" % (ip_pkt.get_ip_src(),tcp_pkt.get_th_sport(),ip_pkt.get_ip_dst(),tcp_pkt.get_th_dport())
-					print "\t 22 %s\n" % (match.groupdict()['found'])
+					print ("%s:%d ->22 %s:%d" % (ip_pkt.get_ip_src(),tcp_pkt.get_th_sport(),ip_pkt.get_ip_dst(),tcp_pkt.get_th_dport()) )
+					print ("\t 22 %s\n" % (match.groupdict()['found']) )
 					self.matched_packet=match.groupdict()['found']
 					
 
@@ -71,15 +71,15 @@ class sniffer():
 		dev = args[0]
 		filt='tcp'
 		#target=args[2]
-		print str(dev) + "   =>  "+str(args[1])
+		print (str(dev) + "   =>  "+str(args[1]) )
 		try :
 			pcap = pcapy.open_live(dev, 1500, 0, 100)
 			pcap.setfilter(filt)
-			print "Sniffing sensitive data on  " + str(dev)
+			print ("Sniffing sensitive data on  " + str(dev) )
 			pcap.loop(0, self.handle_packet)
-		except  Exception, e:
+		except  Exception as e:
 			self.error=e
-			print e
+			print (e)
 			exit()
 
 

